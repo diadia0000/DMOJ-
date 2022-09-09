@@ -1,0 +1,18 @@
+import sys #speed up
+k,n = map(int,input().split())
+c = {} #save word
+ind = {} #save word index
+for i in range(k):
+    word = sys.stdin.readline().strip("\n")
+    if word[0] not in c:
+        c[word[0]] = [word]
+        ind[word[0]] = 0
+    else:
+        c[word[0]].append(word)
+for j in c:
+    c[j].sort() # chose the smaller len of word
+for k in range(n):
+    want = sys.stdin.readline().strip("\n")
+    temp = ind[want]%len(c[want])
+    print(c[want][temp])
+    ind[want]+=1
