@@ -1,0 +1,32 @@
+import sys
+def s_flow(n,s,flow):
+    splt = round(flow[n-1]*(s/100))
+    old = flow[n-1]-splt
+    del flow[n-1]
+    flow.insert(n-1,old)
+    flow.insert(n-1,splt)
+    return flow
+def add_flow(n,flow):
+    add = flow[n]
+    flow[n-1] += add
+    flow.pop(n)
+    return flow
+
+river = int(input())
+flow = []
+for i in range(river):
+    flow.append(int(sys.stdin.readline().strip("\n")))
+while True:
+    new = []
+    n = int(sys.stdin.readline().strip("\n"))
+    if n == 77:
+        break
+    if n == 99:
+        num = int(sys.stdin.readline().strip("\n"))
+        splt = int(sys.stdin.readline().strip("\n"))
+        flow = s_flow(num,splt,flow)
+    elif n == 88:
+        num = int(sys.stdin.readline().strip("\n"))
+        flow = add_flow(num,flow)
+        
+print(*flow)
