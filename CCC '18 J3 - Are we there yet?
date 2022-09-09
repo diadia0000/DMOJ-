@@ -19,6 +19,7 @@ for i in range(0,len(n)+1):
                 Map[i][j] = disten(i,j) #上半部
 for i in Map:
     print(*i)
+    
 
 
 
