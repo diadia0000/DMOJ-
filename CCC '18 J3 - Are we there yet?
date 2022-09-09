@@ -1,20 +1,24 @@
-def show(Map):
-    for i in Map:
-        print(*i)
-
+def disten(a,b):
+    dis = 0
+    global n
+    for i in range(a,b):
+        dis+=n[i]
+    return dis
 
 n = list(map(int,input().split()))
-Map = [[0 for i in range(len(n))] for j in range(len(n))]
+Map = [[0 for i in range(len(n)+1)] for j in range(len(n)+1)]
 index = 0
-for i in range(0,len(n)):
-    for j in range(0,len(n)):
-        if j==index:
+for i in range(0,len(n)+1):
+    for j in range(0,len(n)+1):
+        if i==j:
             Map[i][j] = 0
         else:
             if j<i:
-                Map[i][j]
-    index+=1
-
+                Map[i][j] = disten(j,i) #下半部
+            else:
+                Map[i][j] = disten(i,j) #上半部
+for i in Map:
+    print(*i)
 
 
 
