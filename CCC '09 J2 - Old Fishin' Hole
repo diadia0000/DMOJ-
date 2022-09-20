@@ -1,0 +1,12 @@
+bp = int(input())
+np= int(input()) 
+yp = int(input())
+total = int(input())
+ways = 0
+for i in range(0,total+1):
+    for j in range(0,total+1):
+        for k in range(0,total+1):
+            if (i+k+j)>0 and i*yp + j*np + k*bp<=total:
+                print(f'{k} Brown Trout, {j} Northern Pike, {i} Yellow Pickerel')
+                ways +=1
+print(f'Number of ways to catch fish: {ways}')
