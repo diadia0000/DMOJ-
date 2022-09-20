@@ -38,3 +38,4 @@ for j in search:
     find,dirt = check(Map,i,home,now)
     if find !=-1:
         ans.append([move,s_dit[dirt]])
+#我還沒完成阿
