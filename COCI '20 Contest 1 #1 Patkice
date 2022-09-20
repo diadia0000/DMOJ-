@@ -1,0 +1,40 @@
+'''def show_map(Map):
+    for i in Map:
+        print(*i)'''
+def check(Map,dirt,home,now):
+    move = 0
+    place = home
+    flag = False
+    while True:
+        if Map[place[0]][place[1]] == 'x':
+            flag = True
+            break
+        elif Map[place[0]][place[1]] == -1:
+            break
+    if flag:
+        return move,now
+    else:
+        return -1,-1
+        
+        
+r,s = map(int,input().split())
+Map = []
+Map.append([-1]*(s+2))
+home = 0
+for i in range(r):
+    c = [-1] + list(input()) + [-1]
+    if 'o' in c:
+        for j in range(len(c)):
+            if c[j] == 'o':
+                home = [i,j]
+    Map.append(c)
+Map.append([-1]*(s+2))
+#show_map(Map)
+search = [[-1,0],[0,1],[0,-1],[1,0]] # N E W S
+s_dit = {'1':'N','2':'E','3':'W''4':'S'}
+ans = []
+
+for j in search:
+    find,dirt = check(Map,i,home,now)
+    if find !=-1:
+        ans.append([move,s_dit[dirt]])
