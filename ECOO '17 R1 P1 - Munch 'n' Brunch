@@ -1,0 +1,21 @@
+case = 0
+pay_m = [12,10,7,5]
+while case<10:
+    pay = int(input())
+    grade = [float(i) for i in input().split()]
+    n = int(input())
+    student = []
+    for i in grade:
+        s = int(n*i)
+        student.append(s)
+    total = 0
+    un = n-sum(student)
+    most = max(student)
+    student[student.index(most)] += un
+    for j in range(4):
+        total+= student[j]*pay_m[j]
+    if total/2<pay:
+        print("YES")
+    else:
+        print("NO")
+    case+=1
