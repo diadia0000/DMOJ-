@@ -1,0 +1,24 @@
+n,m = map(int,input().split())
+scarf = list(map(int,input().split()))
+total = 0
+for i in range(m):
+    people = list(map(int,input().split()))
+    now_l = 0
+    while scarf[now_l] != people[0]:
+        now_l+=1
+        if now_l == len(scarf):
+            now_l = 1000000000
+            break
+    now_r = len(scarf)-1
+    while scarf[now_r] != people[1]:
+        now_r -=1
+        if now_r<0:
+            now_r = -10000000000
+            break
+    total = max(total,(now_r-now_l+1))
+print(total)
+
+#時間複雜度為O(2mn)
+#如果把一開始的顏色最左邊index跟坐右邊index存起來?
+#然後如果想要的顏色沒有在裡面的話就跳過
+
