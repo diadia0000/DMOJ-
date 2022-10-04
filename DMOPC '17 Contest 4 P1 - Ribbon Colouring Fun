@@ -1,0 +1,17 @@
+n,q = list(map(int,input().split()))
+tie = []
+for i in range(q):
+    l,r = list(map(int,input().split()))
+    tie.append([l,r])
+tie.sort()
+ans = []
+left,right = tie[0][0],tie[0][1]
+for x,y in tie:
+    if x>right:
+        ans.append([left,right])
+        left,right = x,y
+    elif y>right:
+        right = y
+ans.append([left,right])
+#not done yet :)
+
