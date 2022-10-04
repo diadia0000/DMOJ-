@@ -1,0 +1,22 @@
+import sys #單純好玩，無實質意義的加速，加速之後達全球前3
+n,m = map(int,input().split())
+scarf = list(map(int,input().split()))
+total = 0
+s_left = {}
+s_right = {}
+for i in range(n):
+    color = scarf[i]
+    if color not in s_left:
+        s_left[color] = i
+    
+    if color not in s_right:
+        s_right[color] = i
+    elif color in s_right:
+        s_right[color] = i
+for j in range(m):
+    people = list(map(int,sys.stdin.readline().strip("\n").split())) # 或是 list(map(int,input().split()))也可以
+    if people[0] not in s_left or people[1] not in s_left:
+        continue
+    else:
+        total = max(total,s_right[people[1]] - s_left[people[0]]+1)
+print(total)
