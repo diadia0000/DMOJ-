@@ -13,5 +13,8 @@ for x,y in tie:
     elif y>right:
         right = y
 ans.append([left,right])
-#not done yet :)
+total = 0
+for l,r in ans:
+    total+= (r-l)
+print(n-total,total)
 
