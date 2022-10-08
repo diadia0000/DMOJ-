@@ -1,0 +1,20 @@
+import sys
+R,C = map(int,input().split())
+Map = []
+Map_r = [list('.'*C)for i in range(R)]
+for i in range(R):
+    m = list(input())
+    for j in range(len(m)):
+        if m[j] == 'X':
+            for a in range(C):
+                Map_r[i][a] = 'X'
+            for b in range(R):
+                Map_r[b][j] = 'X'
+
+Q = int(input())
+for k in range(Q):
+    x,y = map(int,sys.stdin.readline().strip('\n').split())
+    if Map_r[y-1][x-1] == 'X':
+        sys.stdout.write('Y\n')
+    else:
+        sys.stdout.write('N\n')
