@@ -1,0 +1,28 @@
+n = int(input())
+cup = []
+total = 0
+for i in range(n):
+    t,z = map(int,input().split())
+    total +=t
+    cup.append([i,0,z])
+cup.sort(key = lambda x:x[2],reverse = True)
+#print(cup)
+no = 0
+for j in range(n):
+    if total>= cup[j][2]:
+        total-=cup[j][2]
+        cup[j][1] = cup[j][2]
+    else:
+        cup[j][1] = total
+        total = 0
+    if cup[j][1] == 0:
+        no+=1
+#print(cup)
+cup.sort(key = lambda x:x[0])
+#print(cup)
+print(no)
+for k in range(n):
+    if k == n-1:
+        print(cup[k][1])
+    else:
+        print(cup[k][1],end = " ")
